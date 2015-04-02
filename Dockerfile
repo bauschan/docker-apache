@@ -6,6 +6,7 @@ MAINTAINER Maintainer <peter.foerger@dkd.de>
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
         curl \
+        git \
         graphicsmagick \
         apache2 \
         libapache2-mod-php5 \
@@ -29,11 +30,11 @@ RUN chmod 755 /*.sh
 
 
 # Fetch typo3_src
-RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
+RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.11
 
 # Link distribution to document root
 RUN rm -rf /var/www/html && ln -s /CmsBaseDistribution /var/www/html
 
 EXPOSE 80
-WORKDIR /app
+WORKDIR /CmsBaseDistribution
 CMD ["/run.sh"]
