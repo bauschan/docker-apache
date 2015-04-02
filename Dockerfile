@@ -10,6 +10,7 @@ RUN apt-get update && \
         graphicsmagick \
         apache2 \
         libapache2-mod-php5 \
+        mysql-client \
         php5-mcrypt \
         php5-mysql \
         php5-gd \
