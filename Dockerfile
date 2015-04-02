@@ -21,13 +21,18 @@ RUN apt-get update && \
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
 
+
+
 # Add image configuration and scripts
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
-# Configure /app folder with sample app
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-ADD sample/ /app
+
+# Fetch typo3_src
+RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.x-dev
+
+# Link distribution to document root
+RUN rm -rf /var/www/html && ln -s /CmsBaseDistribution /var/www/html
 
 EXPOSE 80
 WORKDIR /app
