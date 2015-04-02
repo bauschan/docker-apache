@@ -15,7 +15,7 @@ RUN apt-get update && \
 		php5-cli \
 		php5-pear \
         php5-xdebug \
-        php5-xhprof \
+        php5-xhprof && \
     rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
