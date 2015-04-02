@@ -6,6 +6,7 @@ MAINTAINER Maintainer <peter.foerger@dkd.de>
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
         curl \
+        graphicsmagick \
         apache2 \
         libapache2-mod-php5 \
         php5-mcrypt \
