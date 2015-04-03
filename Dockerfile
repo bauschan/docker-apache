@@ -4,6 +4,7 @@ MAINTAINER Maintainer <peter.foerger@dkd.de>
 
 ENV TYPO3_VERSION 7.1.0
 
+
 # Install base packages
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
