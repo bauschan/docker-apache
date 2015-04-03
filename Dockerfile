@@ -2,7 +2,7 @@ FROM tutum/ubuntu:latest
 
 MAINTAINER Maintainer <peter.foerger@dkd.de>
 
-ENV TYPO3_VERSION 7.1.0
+ENV TYPO3_VERSION dev-master
 
 
 # Install base packages
