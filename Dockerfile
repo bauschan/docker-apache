@@ -2,6 +2,8 @@ FROM tutum/ubuntu:latest
 
 MAINTAINER Maintainer <peter.foerger@dkd.de>
 
+ENV TYPO3_VERSION 6.2.11
+
 # Install base packages
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
@@ -31,7 +33,7 @@ RUN chmod 755 /*.sh
 
 
 # Fetch typo3_src
-RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution 6.2.11
+RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution $TYPO3_VERSION
 
 # Link distribution to document root
 RUN rm -rf /var/www/html && ln -s /CmsBaseDistribution /var/www/html
