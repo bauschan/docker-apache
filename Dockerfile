@@ -41,8 +41,8 @@ RUN composer create-project typo3/cms-base-distribution CmsBaseDistribution $TYP
 RUN rm -rf /var/www/html && ln -s /CmsBaseDistribution /var/www/html
 
 # fetch Typo3ExtensionUtils
-RUN git clone https://github.com/etobi/Typo3ExtensionUtils.git /CmsBaseDistribution/  && \
-    cd /CmsBaseDistribution/Typo3ExtensionUtils/bin/ && \
+RUN git clone https://github.com/etobi/Typo3ExtensionUtils.git && \
+    cd Typo3ExtensionUtils/bin/ && \
     chmod +x t3xutils.phar
 
 EXPOSE 80
